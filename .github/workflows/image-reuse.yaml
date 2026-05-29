@@ -177,6 +177,8 @@ jobs:
             BUILD_DATE=${{env.BUILD_DATE}}
             GIT_TREE_STATE=${{env.GIT_TREE_STATE}}
 
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
       - name: Sign container images
         run: |
           for signing_tag in $SIGNING_TAGS; do
